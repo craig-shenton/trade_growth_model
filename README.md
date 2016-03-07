@@ -2,8 +2,8 @@
 
 Required functions
 
-1. RANDP, i.e., Roulette Wheel Selection
+1. Roulette Wheel Selection
 
-By Jos (10584)
+By Rami AbouSleiman
 
-http://nl.mathworks.com/matlabcentral/fileexchange/8891-randp
+http://www.mathworks.com/matlabcentral/fileexchange/45735-roulette-wheel-selection
