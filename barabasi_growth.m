@@ -20,7 +20,7 @@ t = m;
 
 while t < time
     % add 1 to timer
-    t = t + 1;                     
+    t = t + 1                    
     % add node to U
     u = u + 1;  
     % select node u in U
