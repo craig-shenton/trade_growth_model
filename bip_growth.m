@@ -1,7 +1,8 @@
  
-time = 10000;             % number of time periods
+time = 10000;            % number of time periods
 lambda = 20;             % average number of edges attached per node 
 p_lam = 1/(2*lambda);    % vertex attachment probability
+ini_pref = 0.1;          % initial preference, must be > 0
 
 n = 1;                   % number of nodes in U
 m = 1;                   % number of nodes in V
@@ -26,15 +27,9 @@ while t < time
         n = n + 1;                              % add node to U
         node_n = n;                             % select node n in U
         % attach edge via pref attachment
-        deg = sum(G,1);
-        deg_m = RouletteWheelSelection(deg+zero_pref);    % pick on pref attachment
-        check_link = G(node_n,deg_m);
-        while check_link < 0                     % if not connected 
-             deg_m = RouletteWheelSelection(deg+zero_pref);% pick on pref attachment
-             check_link = G(node_n,deg_m);
-        end
-        node_m = deg_m;                         % select pref node in V
-        sumedges = sumedges + 1;                % add 1 to edge count
+        node_m = pref_attach( G, node_n, ini_pref);
+        % add 1 to edge count
+        sumedges = sumedges + 1;                
     else                                        % with prob 1-(1/2lambda)
         % attach edge via uniform attachment
         node_n = ceil(rand * n);                % select random node in U
@@ -47,15 +42,9 @@ while t < time
             node_m = m;                             % select node m in V
         else                                        % with prob 1-(1/2lambda)
             % attach edge via pref attachment
-            deg = sum(G,1);
-            deg_m = RouletteWheelSelection(deg+zero_pref);    % pick on pref attachment
-            check_link = G(node_n,deg_m);
-            while check_link < 0                     % if not connected 
-                 deg_m = RouletteWheelSelection(deg+zero_pref);% pick on pref attachment
-                 check_link = G(node_n,deg_m);
-            end
-            node_m = deg_m;                         % select pref node in V
-            sumedges = sumedges + 1;                % add 1 to edge count
+            node_m = pref_attach( G, node_n, ini_pref);
+            % add 1 to edge count
+            sumedges = sumedges + 1;                
         end
     end
     G(n+node_m,node_n) = 1;                     % add edge from node_m to node_n
