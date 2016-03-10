@@ -1,6 +1,6 @@
  
 time = 10000;             % number of time periods
-lambda = 10;             % average number of edges attached per node 
+lambda = 20;             % average number of edges attached per node 
 p_lam = 1/(2*lambda);    % vertex attachment probability
 
 n = 1;                   % number of nodes in U
@@ -82,7 +82,7 @@ hold on
 h(1) = plot(prob_df(:,1),prob_df(:,2),'-');
 h(2) = plot(prob_df2(:,1),prob_df2(:,2),'-');
 legend('Exporters','Importers')
-set(gca,'XLim',([0 100]));
+set(gca,'XLim',([0 1000]));
 set(gca,'YLim',([0.001 1]));
 set(gca,'yscale','log')
 set(gca,'xscale','log')
