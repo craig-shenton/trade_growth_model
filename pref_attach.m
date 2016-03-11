@@ -24,6 +24,7 @@ if sum(degree) < size(degree,1)
     end
     node_v = node;
 else
+    % if all are connected
     node_v = RouletteWheelSelection(degree+ini_pref);
 
 end
