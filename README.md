@@ -1,4 +1,4 @@
-# bipartite_growth_model
+# trade_growth_model
 
 Required functions
 
