@@ -1,4 +1,4 @@
-%% Bipartite Growth Model
+%% Trade Growth Model
 
 % model parameters
 time = 1000;                 % number of time periods
